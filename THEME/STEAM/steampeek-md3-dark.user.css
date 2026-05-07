@@ -1,3 +1,12 @@
+/* ==UserStyle==
+@name         SteamPeek MD3 Dark
+@version      1.0.0
+@namespace    https://github.com/linyaocrush
+@description  MD3-style UI theme for the steampeek browser extension. Modernizes the interface with Material You color palette, rounded corners, and clean typography.
+@license      CC BY-NC-ND 4.0
+==/UserStyle== */
+
+@-moz-document domain("steampeek.hu") {
 :root {
     /* MD3 深色调色板核心变量 */
     --md-surface: #1C1B1F;
@@ -309,4 +318,5 @@ html.dark_mode ::-webkit-scrollbar-thumb:hover {
     .lister_item_header_tag_cont {
         max-width: calc(100% - 140px) !important;
     }
+}
 }
