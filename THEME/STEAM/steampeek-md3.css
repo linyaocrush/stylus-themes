@@ -1,0 +1,323 @@
+/* ==UserStyle==
+@name           SteamPeek - MD3 Style
+@namespace      https://github.com/linyaocrush
+@version        1.0.0
+@description    MD3 theme for SteamPeek
+@author         linyaocrush
+==/UserStyle== */
+
+@-moz-document domain("steampeek.hu") {
+
+:root {
+    /* MD3 深色调色板核心变量 */
+    --md-surface: #1C1B1F;
+    --md-surface-container: #2B2930;
+    --md-surface-container-high: #333138;
+    --md-primary: #D0BCFF;
+    --md-on-primary: #381E72;
+    --md-primary-container: #4F378B;
+    --md-on-primary-container: #EADDFF;
+    --md-secondary-container: #4A4458;
+    --md-on-secondary-container: #E8DEF8;
+    --md-outline: #938F99;
+    --md-on-surface: #E6E1E5;
+    --md-on-surface-variant: #CAC4D0;
+    --md-tertiary: #EFB8C8;
+
+    /* 覆盖原站变量以确保兼容性 */
+    --main-main-background: var(--md-surface) !important;
+    --main-color-sh5: var(--md-surface-container) !important;
+    --main-color-sh19: var(--md-on-surface) !important;
+    --main-color-sh7: var(--md-primary) !important;
+    --btn-alt: var(--md-secondary-container) !important;
+    --btn-alt-hover: var(--md-primary-container) !important;
+    --border-slim-p1: var(--md-outline) !important;
+}
+
+/* 全局背景与字体 */
+body {
+    background-color: var(--md-surface) !important;
+    color: var(--md-on-surface) !important;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+/* 顶部导航栏简化 */
+.header_content {
+    border-bottom: 1px solid var(--md-surface-container-high) !important;
+    padding: 16px 0 !important;
+    background: var(--md-surface) !important;
+}
+
+.main_logo {
+    filter: brightness(1.2) saturate(0.8);
+    color: var(--md-primary) !important;
+}
+
+/* 搜索区域 - MD3 药丸风格 */
+#filter_sample_container {
+    background: var(--md-surface-container-high) !important;
+    border-radius: 32px !important;
+    border: none !important;
+    padding: 20px !important;
+    margin: 24px auto !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+}
+
+#filter_text {
+    background: var(--md-surface-container) !important;
+    border: 1px solid var(--md-outline) !important;
+    border-radius: 28px !important;
+    padding: 12px 24px !important;
+    color: var(--md-on-surface) !important;
+    transition: all 0.2s ease !important;
+}
+
+#filter_text:focus {
+    border-color: var(--md-primary) !important;
+    box-shadow: 0 0 0 2px var(--md-primary-container) !important;
+}
+
+/* 游戏卡片 - MD3 风格 */
+article.lister_item_cont {
+    background-color: var(--md-surface-container) !important;
+    border-radius: 24px !important;
+    border: 1px solid transparent !important;
+    padding: 12px !important;
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s !important;
+    overflow: hidden !important;
+    margin-bottom: 8px !important;
+    /* 修复：确保卡片有足够的最小高度 */
+    min-height: auto !important;
+    height: auto !important;
+}
+
+article.lister_item_cont:hover {
+    background-color: var(--md-surface-container-high) !important;
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4) !important;
+    border-color: var(--md-outline) !important;
+}
+
+/* 移除原有的彩色细条动画 */
+.lister_item_cont .lister_item_thumb_slider:before {
+    display: none !important;
+}
+
+/* 游戏图片圆角 */
+.lister_item_thumb_slider, .lister_item_thumb_capsule {
+    border-radius: 16px !important;
+    overflow: hidden !important;
+}
+
+/* 标题与文字 */
+.lister_item_cont h4 {
+    color: var(--md-primary) !important;
+    font-weight: 600 !important;
+    margin-top: 12px !important;
+}
+
+.lister_item_info_details_sum {
+    color: var(--md-on-surface-variant) !important;
+    line-height: 1.5 !important;
+}
+
+/* ===== 修复：标签区域布局 ===== */
+/* 标签容器 - 修复与右侧小图重叠的问题 */
+.lister_item_header_container {
+    display: flex !important;
+    flex-flow: nowrap !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* 标签内容区域 */
+.lister_item_header_tag_cont {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+    margin: 0 !important;
+    padding-right: 8px !important;
+}
+
+/* 标签段落容器 */
+.lister_item_header_tag_cont p {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+    margin: 0 !important;
+    width: 100% !important;
+}
+
+/* 右侧小图容器 - 修复重叠 */
+.lister_item_thumb_cont {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    max-width: 120px !important;
+    min-width: 80px !important;
+    margin-left: auto !important;
+    align-self: flex-start !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.lister_item_thumb_cont img {
+    border-radius: 8px !important;
+    max-height: 68px !important;
+    width: auto !important;
+    object-fit: cover !important;
+}
+
+/* 标签 (Chips) 样式 */
+.tag {
+    background-color: var(--md-secondary-container) !important;
+    color: var(--md-on-secondary-container) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 6px 12px !important;
+    text-transform: capitalize !important;
+    font-size: 0.7rem !important;
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+}
+
+.tag:hover {
+    background-color: var(--md-primary-container) !important;
+    color: var(--md-on-primary-container) !important;
+}
+
+/* ===== 修复：底部按钮区域 ===== */
+/* 按钮容器 - 修复显示不完全 */
+.lister_item_info_controls {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin-top: 12px !important;
+    padding-top: 8px !important;
+    border-top: 1px solid var(--md-outline) !important;
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* 按钮样式 - MD3 Filled/Tonal Button */
+.btn, .btn_alt, #submit_filter_sample_btn {
+    border-radius: 100px !important;
+    padding: 10px 24px !important;
+    font-weight: 500 !important;
+    border: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+}
+
+.btn {
+    background-color: var(--md-primary) !important;
+    color: var(--md-on-primary) !important;
+}
+
+.btn_alt {
+    background-color: var(--md-secondary-container) !important;
+    color: var(--md-on-secondary-container) !important;
+}
+
+/* 修复按钮内的图标和文字对齐 */
+.lister_item_info_controls .btn,
+.lister_item_info_controls .btn_alt {
+    font-size: 0.85rem !important;
+    padding: 8px 16px !important;
+    min-height: 36px !important;
+}
+
+/* 底部布局与元素重叠修正 */
+#lister_result_container {
+    gap: 20px !important;
+    padding: 24px 0 !important;
+}
+
+/* 信息详情区域 */
+.lister_item_info_details {
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* 评分颜色调整 */
+.app_sprating {
+    color: var(--md-tertiary) !important;
+}
+
+/* 滚动条美化 */
+html.dark_mode ::-webkit-scrollbar {
+    width: 10px !important;
+}
+html.dark_mode ::-webkit-scrollbar-track {
+    background: var(--md-surface) !important;
+}
+html.dark_mode ::-webkit-scrollbar-thumb {
+    background: var(--md-surface-container-high) !important;
+    border-radius: 10px !important;
+    border: 2px solid var(--md-surface) !important;
+}
+html.dark_mode ::-webkit-scrollbar-thumb:hover {
+    background: var(--md-outline) !important;
+}
+
+/* 响应式调整 */
+@media all and (max-width: 599px) {
+    article.lister_item_cont {
+        padding: 10px !important;
+    }
+    
+    .lister_item_header_container {
+        flex-flow: wrap !important;
+    }
+    
+    .lister_item_header_tag_cont {
+        width: 100% !important;
+        order: 2 !important;
+    }
+    
+    .lister_item_thumb_cont {
+        width: 100% !important;
+        max-width: none !important;
+        order: 1 !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .lister_item_thumb_cont img {
+        max-height: 120px !important;
+        width: 100% !important;
+    }
+    
+    .lister_item_info_controls {
+        justify-content: flex-start !important;
+    }
+    
+    .tag {
+        font-size: 0.65rem !important;
+        padding: 4px 8px !important;
+    }
+}
+
+@media all and (min-width: 600px) {
+    .lister_item_info_controls {
+        justify-content: flex-start !important;
+    }
+    
+    /* 确保桌面端标签区域不会与小图重叠 */
+    .lister_item_header_tag_cont {
+        max-width: calc(100% - 140px) !important;
+    }
+}
+}
