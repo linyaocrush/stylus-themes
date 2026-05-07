@@ -1,13 +1,3 @@
-/* ==UserStyle==
-@name           SteamPeek MD3 Dark
-@namespace      https://github.com/linyaocrush
-@version        1.0.0
-@description    MD3 theme for SteamPeek
-@author         linyaocrush
-==/UserStyle== */
-
-@-moz-document domain("steampeek.hu") {
-
 :root {
     /* MD3 深色调色板核心变量 */
     --md-surface: #1C1B1F;
@@ -319,5 +309,4 @@ html.dark_mode ::-webkit-scrollbar-thumb:hover {
     .lister_item_header_tag_cont {
         max-width: calc(100% - 140px) !important;
     }
-}
 }
